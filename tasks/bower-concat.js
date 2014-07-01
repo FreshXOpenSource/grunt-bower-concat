@@ -148,6 +148,10 @@ module.exports = function(grunt) {
 				if (fs.lstatSync(path.join(bowerDir, componentDir)).isFile()) {
 					componentDir = path.dirname(componentDir);
 				}
+				
+				if(typeof component === 'string' && component.match(/.js$/)) {
+					component = [component]
+				}
 
 				// Allow overwriting of predefined main files. Extract path from first 
 				// component.
