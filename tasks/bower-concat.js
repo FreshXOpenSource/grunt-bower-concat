@@ -149,8 +149,6 @@ module.exports = function(grunt) {
 					componentDir = path.dirname(componentDir);
 				}
 				
-				console.log(componentDir)
-				
 				var manualMainFiles = ensureArray(mains[name]);
 				manualMainFiles = _.map(manualMainFiles, function(filepath) {
 					return path.join(bowerDir, componentDir, filepath);
