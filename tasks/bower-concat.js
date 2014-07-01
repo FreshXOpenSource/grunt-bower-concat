@@ -149,6 +149,13 @@ module.exports = function(grunt) {
 					componentDir = path.dirname(componentDir);
 				}
 
+				// Allow overwriting of predefined main files. Extract path from first 
+				// component.
+				if(Array.isArray(component)) {
+					var m = component[0].match(new RegExp('(.*?/' + name + ')'));	
+					component = m[1];
+				}
+
 				var manualMainFiles = ensureArray(mains[name]);
 				manualMainFiles = _.map(manualMainFiles, function(filepath) {
 					return path.join(bowerDir, componentDir, filepath);
